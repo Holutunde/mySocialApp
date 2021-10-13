@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Onboarding from './screen/Onboarding'
+import Login from './screen/Login'
 
 const Stack = createNativeStackNavigator()
 
@@ -32,6 +33,7 @@ const App = () => {
           }}
         >
           <Stack.Screen name="Onboarding" component={Onboarding} />
+          <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
     )
