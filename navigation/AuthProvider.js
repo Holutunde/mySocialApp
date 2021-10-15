@@ -1,13 +1,12 @@
 import React, { createContext, useState } from 'react'
-//import auth from '@react-native-firebase/auth'
+// import auth from '@react-native-firebase/auth'
 import Firebase from '../config/firebase'
 
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
-
   const auth = Firebase.auth()
+  const [user, setUser] = useState(null)
 
   return (
     <AuthContext.Provider
