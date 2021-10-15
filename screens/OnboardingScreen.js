@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
-import { windowHeight, windowWidth } from '../utils/Dimentions'
 
 import Onboarding from 'react-native-onboarding-swiper'
 
