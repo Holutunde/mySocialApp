@@ -3,9 +3,8 @@ import React, { createContext, useState } from 'react'
 import Firebase from '../config/firebase'
 
 export const AuthContext = createContext()
-
+const auth = Firebase.auth()
 export const AuthProvider = ({ children }) => {
-  const auth = Firebase.auth()
   const [user, setUser] = useState(null)
 
   return (
@@ -15,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         setUser,
         login: async (email, password) => {
           try {
-            await auth().signInWithEmailAndPassword(email, password)
+            await auth.signInWithEmailAndPassword(email, password)
           } catch (e) {
             console.log(e)
           }
