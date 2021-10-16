@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react'
 import Firebase from '../config/firebase'
 
 export const AuthContext = createContext()
-const auth = Firebase.auth()
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
@@ -14,7 +13,7 @@ export const AuthProvider = ({ children }) => {
         setUser,
         login: async (email, password) => {
           try {
-            await auth.signInWithEmailAndPassword(email, password)
+            await Firebase.auth().signInWithEmailAndPassword(email, password)
           } catch (e) {
             console.log(e)
           }
@@ -22,14 +21,17 @@ export const AuthProvider = ({ children }) => {
 
         register: async (email, password) => {
           try {
-            await auth().createUserWithEmailAndPassword(email, password)
+            await Firebase.auth().createUserWithEmailAndPassword(
+              email,
+              password,
+            )
           } catch (e) {
             console.log(e)
           }
         },
         logout: async () => {
           try {
-            await auth().signOut
+            await Firebase.auth().signOut
           } catch (e) {
             console.log(e)
           }

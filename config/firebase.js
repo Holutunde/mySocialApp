@@ -1,19 +1,15 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-
-// Initialize Firebase
+import firebase from 'firebase'
+import Constants from 'expo-constants'
 const firebaseConfig = {
-  apiKey: 'AIzaSyCkFD1eDdaB-xBolWgzcERpnMZ_kTzq6Ws',
-  authDomain: 'social-app-81e09.firebaseapp.com',
-  projectId: 'social-app-81e09',
-  storageBucket: 'social-app-81e09.appspot.com',
-  messagingSenderId: '174433289250',
-  appId: '1:174433289250:web:f9f0b98de03238d2ba367b',
+  apiKey: Constants.manifest.extra.API_KEY,
+  authDomain: Constants.manifest.extra.AUTH_DOMAIN,
+  databaseURL: Constants.manifest.extra.DATABASE_URL,
+  projectId: Constants.manifest.extra.PROJECT_ID,
+  storageBucket: Constants.manifest.extra.STORAGE_BUCKET,
+  messagingSenderId: Constants.manifest.extra.MESSAGE_SENDER_ID,
+  appId: Constants.manifest.extra.APP_ID,
+  measurementId: Constants.manifest.extra.MEASUREMENT_ID,
 }
-let Firebase
-
-if (firebase.apps.length === 0) {
-  Firebase = firebase.initializeApp(firebaseConfig)
-}
+let Firebase = firebase.initializeApp(firebaseConfig)
 
 export default Firebase
